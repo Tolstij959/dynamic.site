@@ -75,17 +75,25 @@ $params=[
 
 //tt(selectOne('users'));
 
-//INSERT INTO $table (admin, username, email,password) VALUES ( :adm, :user, :mail, :pass)"
+
 
 
 function insert ($table, $param){
     global $pdo;
+    //INSERT INTO $table (admin, username, email,password) VALUES ( :adm, :user, :mail, :pass)"
     $i=0;
     $coll='';
     $mask='';
+
+
     foreach ($param as $key=>$value) {
-        $coll= $coll . $key;
-        $mask =  $mask . $value;
+        if ($i === 0) {
+            $coll= $coll . "$key";
+            $mask =  $mask . "$value";
+        } else {
+            $coll= $coll . ", $key";
+            $mask =  $mask . ", $value";
+        }
         $i++;
     }
 
