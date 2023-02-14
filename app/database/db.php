@@ -17,7 +17,7 @@ function dbCheckError ($query) {
     }
     return true;
 }
-//запрос на получение всех данных из выбранной таблицы
+//Запрос на получение всех данных из выбранной таблицы
 function selectAll($table, $params=[]){
     global $pdo;
     $sql = "SELECT * FROM $table";
@@ -42,7 +42,7 @@ function selectAll($table, $params=[]){
     return $query->fetchAll();
 }
 
-//запрос на получение одной записи из  выбранной таблицы
+//Запрос на получение одной записи из  выбранной таблицы
 function selectOne($table, $params=[]){
     global $pdo;
     $sql = "SELECT * FROM $table";
@@ -71,46 +71,55 @@ $params=[
     'username'=> 'Goga'
 ];
 
-//tt(selectAll('users', $params));
-
-//tt(selectOne('users'));
-
-
-
-
-function insert ($table, $param){
+ //Запись в таблицу БД
+function  insert($table, $params){
     global $pdo;
-    //INSERT INTO $table (admin, username, email,password) VALUES ( :adm, :user, :mail, :pass)"
     $i=0;
     $coll='';
     $mask='';
 
 
-    foreach ($param as $key=>$value) {
+    foreach ($params as $key=>$value) {
         if ($i === 0) {
             $coll= $coll . "$key";
-            $mask =  $mask . "$value";
+            $mask =  $mask .  "'"."$value". "'";
         } else {
             $coll= $coll . ", $key";
-            $mask =  $mask . ", $value";
+            $mask =  $mask . ", '"."$value" . "'";
         }
         $i++;
     }
 
     $sql = "INSERT INTO $table ($coll) VALUES ($mask)";
-
-    tt($sql);
-    exit();
-
     $query = $pdo-> prepare($sql);
-    $query->execute($arrData);
+    $query->execute($params);
     dbCheckError ($query);
+    return $pdo->lastInsertId();
 }
 
-$arrData=[
-    'admin' => '0',
-    'username' =>'22',
-    'email'=>'22@yandex.ru',
-    'password'=>'12345'
-];
-insert('users', $arrData);
+//Обновление строки в таблице БД
+function  update ($table,$id ,$params){
+    global $pdo;
+    $i=0;
+    $str='';
+    foreach ($params as $key=>$value) {
+        if ($i === 0) {
+            $str= $str . $key . "= '" . $value . "'";
+        } else {
+            $str= $str . ", " .$key . "= '" . $value . "'";
+        }
+        $i++;
+    }
+    $sql = "UPDATE $table SET $str WHERE id= $id";
+    $query = $pdo-> prepare($sql);
+    $query->execute($params);
+    dbCheckError ($query);
+}
+//Удаление строки в таблице БД
+function  delete ($table,$id){
+    global $pdo;
+    $sql = "DELETE FROM  $table  WHERE id= $id";
+    $query = $pdo-> prepare($sql);
+    $query->execute();
+    dbCheckError ($query);
+}
