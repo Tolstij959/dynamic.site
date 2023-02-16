@@ -32,14 +32,18 @@ include "app/controllers/users.php";
                 <div class="container reg_form">
                      <form class="row justify-content-center" method="post" action="reg.php">
                          <h2>Форма регистрации</h2>
+                         <div class="mb-3 col-12 col-md-4 error">
+                                <p><?=$errMsg?></p>
+                         </div>
+                         <div class="w100"></div>
                         <div class="mb-3 col-12 col-md-4">
                             <label for="formGroupExampleInput" class="form-label">Ваш логин</label>
-                            <input name="login" class="form-control" id="formGroupExampleInput" placeholder="Введите ваш логин">
+                            <input name="login" value="<?=$login?>" class="form-control" id="formGroupExampleInput" placeholder="Введите ваш логин">
                         </div>
                          <div class="w100"></div>
                         <div class="mb-3 col-12 col-md-4">
                             <label for="exampleInputEmail1" class="form-label">Адрес электронной почты</label>
-                            <input name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <input name="email" value="<?=$email?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                             <div id="emailHelp" class="form-text">Мы не будем спамить вам на емейл</div>
                         </div>
                          <div class="w100"></div>
