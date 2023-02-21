@@ -49,12 +49,12 @@ include "app/controllers/users.php";
                          <div class="w100"></div>
                         <div class="mb-3 col-12 col-md-4">
                             <label for="exampleInputPassword1" class="form-label">Пароль</label>
-                            <input name="pass-first" class="form-control" id="exampleInputPassword1">
+                            <input type="password" name="pass-first" class="form-control" id="exampleInputPassword1">
                         </div>
                          <div class="w100"></div>
                         <div class="mb-3 col-12 col-md-4">
                             <label for="exampleInputPassword2" class="form-label">Введите пароль еще раз</label>
-                            <input name="pass-second" class="form-control" id="exampleInputPassword2">
+                            <input type="password" name="pass-second" class="form-control" id="exampleInputPassword2">
                         </div>
                          <div class="w100"></div>
                         <div class="mb-3 col-12 col-md-4">

@@ -1,4 +1,6 @@
-<?php include ("path.php");?>
+<?php include 'path.php';
+      include 'app/database/db.php';
+?>
 <!doctype html>
 <html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
       xmlns="http://www.w3.org/1999/html">

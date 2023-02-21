@@ -1,8 +1,8 @@
 <?php
 include "app/database/db.php";
 
-$isSubmit= false;
 $errMsg = '';
+$regStatus = '';
 if($_SERVER['REQUEST_METHOD']==='POST'){
     $admin = 0;
     $login =trim($_POST['login']) ;
@@ -17,24 +17,37 @@ $errMsg = "Не все поля заполнены!";
     } elseif( $passF!==$passS){
         $errMsg ="Пароли в обоих полях должны быть одинаковыми !" ;
     } else {
-        $pass= password_hash($passF, PASSWORD_DEFAULT);
-        $post = [
-            'admin'=>$admin,
-            'username'=> $login,
-            'email'=>$email,
-            'password'=>$pass
-        ];
-//        $id = insert('users', $post);
-        tt( $post);
+        $existence= SelectOne('users',['email'=>$email]);
+        if(!empty($existence['email']) && $existence['email'] === $email){
+            $errMsg ="Пользователь с таким емейл уже зарегистрирован !" ;
+        }else{
+            $pass= password_hash($passF, PASSWORD_DEFAULT);
+            $post = [
+                'admin'=>$admin,
+                'username'=> $login,
+                'email'=>$email,
+                'password'=>$pass
+            ];
+            $id = insert('users', $post);
+            $user = selectOne('users', ['id'=>$id]) ;
+
+            $_SESSION ['id'] = $user ['id'];
+            $_SESSION ['login'] = $user ['username'];
+            $_SESSION ['admin'] = $user ['admin'];
+
+            if $_SESSION ['admin'] {
+                 header('location: ' . BASE_URL . 'admin/admin.php');
+            }else{
+                 header('location: ' . BASE_URL);
+            }
+
+        }
     }
 
 
-//    $last_row  = selectOne('users', ['id'=> $id]);
 } else {
-    echo 'GET';
     $login = '' ;
     $email = '' ;
 }
-//    $pass = password_hash($_POST['pass-second'], PASSWORD_DEFAULT);
 
 
