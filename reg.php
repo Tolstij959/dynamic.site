@@ -1,12 +1,9 @@
 <?php
-include "path.php";
-
-include "app/controllers/users.php";
+    include "path.php";
+    include "app/controllers/users.php";
 ?>
 
-<!doctype html>
-    <html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
-              xmlns="http://www.w3.org/1999/html">
+    <html lang="ru">
         <head>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,7 +27,7 @@ include "app/controllers/users.php";
                     <!--End Header-->
                     <!--FORM-->
                 <div class="container reg_form">
-                     <form class="row justify-content-center" method="post" action="reg.php">
+                     <form action="reg.php" method="post" class="row justify-content-center"  >
                          <h2>Форма регистрации</h2>
                          <div class="mb-3 col-12 col-md-4 error">
                                 <p><?=$errMsg?></p>
@@ -43,7 +40,7 @@ include "app/controllers/users.php";
                          <div class="w100"></div>
                         <div class="mb-3 col-12 col-md-4">
                             <label for="exampleInputEmail1" class="form-label">Адрес электронной почты</label>
-                            <input name="email" value="<?=$email?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <input name="email" value="<?=$email?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите ваш емейл">
                             <div id="emailHelp" class="form-text">Мы не будем спамить вам на емейл</div>
                         </div>
                          <div class="w100"></div>
