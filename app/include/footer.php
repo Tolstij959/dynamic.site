@@ -46,8 +46,9 @@
                 <h3>Контакты</h3>
                 <br>
                 <form action="index.html" method="post">
-                    <input type="email" name="email"class="text-input contact-input" placeholder="Ваш адрес емейл...">
-                    <textarea rows="4"  name="message"class="text-input contact-input" placeholder="Введите ваше сообщение"></textarea>
+                    <input type="email" name="email" class="text-input contact-input" placeholder="Ваш адрес емейл...">
+                    <textarea rows="4" name="message" class="text-input contact-input"
+                              placeholder="Введите ваше сообщение"></textarea>
                     <button type="submit" class="btn-big contact-btn">
                         <i CLASS="fas fa-envelope"></i>
                         Отправить
@@ -63,5 +64,9 @@
 
     <!-- footer END-->
     <!--Popper and JS.-->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+            integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+            integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+            crossorigin="anonymous"></script>

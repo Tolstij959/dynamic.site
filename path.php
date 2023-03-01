@@ -1,2 +1,3 @@
 <?php
-define('BASE_URL', 'http://localhost/dinamic.site/' );
+
+define('BASE_URL', 'http://localhost/dinamic.site/');
