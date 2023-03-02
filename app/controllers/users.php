@@ -3,17 +3,20 @@
 include "app/database/db.php";
 
 $errMsg = '';
-//function userAuth ($value) {
-//$_SESSION ['id'] =  $value['id'];
-//$_SESSION ['login'] = $value ['username'];
-//$_SESSION ['admin'] = $value['admin'];
-//
-//if ($_SESSION ['admin']) {
-//    header('location: ' . BASE_URL . 'admin/admin.php');
-//}else{
-//    header('location: ' . BASE_URL);
-//}
-//} ;
+function userAuth($value)
+{
+    $_SESSION ['id']    = $value['id'];
+    $_SESSION ['login'] = $value ['username'];
+    $_SESSION ['admin'] = $value['admin'];
+
+    if ($_SESSION ['admin']) {
+        header('location: '.BASE_URL.'admin/admin.php');
+    } else {
+        header('location: '.BASE_URL);
+    }
+}
+
+;
 
 
 // Код для формы регистрации
@@ -44,16 +47,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-reg'])) {
             ];
             $id   = insert('users', $post);
             $user = selectOne('users', ['id' => $id]);
-//            userAuth($user);
-            $_SESSION ['id']    = $user ['id'];
-            $_SESSION ['login'] = $user ['username'];
-            $_SESSION ['admin'] = $user ['admin'];
-
-            if ($_SESSION ['admin']) {
-                header('location: '.BASE_URL.'admin/admin.php');
-            } else {
-                header('location: '.BASE_URL);
-            }
+            userAuth($user);
+//            $_SESSION ['id']    = $user ['id'];
+//            $_SESSION ['login'] = $user ['username'];
+//            $_SESSION ['admin'] = $user ['admin'];
+//
+//            if ($_SESSION ['admin']) {
+//                header('location: '.BASE_URL.'admin/admin.php');
+//            } else {
+//                header('location: '.BASE_URL);
+//            }
         }
     }
 } else {
@@ -71,16 +74,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-log'])) {
     } else {
         $existence = SelectOne('users', ['email' => $email]);
         if ($existence && password_verify($pass, $existence['password'])) {
-//            userAuth($existence);
-            $_SESSION ['id']    = $existence['id'];
-            $_SESSION ['login'] = $existence ['username'];
-            $_SESSION ['admin'] = $existence ['admin'];
-
-            if ($_SESSION ['admin']) {
-                header('location: '.BASE_URL.'admin/admin.php');
-            } else {
-                header('location: '.BASE_URL);
-            }
+            userAuth($existence);
+//            $_SESSION ['id']    = $existence['id'];
+//            $_SESSION ['login'] = $existence ['username'];
+//            $_SESSION ['admin'] = $existence ['admin'];
+//
+//            if ($_SESSION ['admin']) {
+//                header('location: '.BASE_URL.'admin/admin.php');
+//            } else {
+//                header('location: '.BASE_URL);
+//            }
         } else {
             $errMsg = "Неправильно введен емейл или пароль!";
         }

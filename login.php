@@ -39,7 +39,7 @@ include("app/include/header.php"); ?>
         <div class="w100"></div>
         <div class="mb-3 col-12 col-md-4">
             <label for="formGroupExampleInput" class="form-label">Ваш email (введенный при регистрации)</label>
-            <input name="email" value="<?= $email ?>" class="form-control" id="exampleInputEmail1"
+            <input name="email" value="<?= $email ?>" type="email" class="form-control" id="exampleInputEmail1"
                    aria-describedby="emailHelp" placeholder="Введите ваш емейл">
         </div>
         <div class="w100"></div>
