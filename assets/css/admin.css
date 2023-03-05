@@ -21,22 +21,11 @@ a {
     color: green;
 }
 
-input {
-    padding: 10px;
-    display: block;
-    width: 100%;
-    border-radius: 3px;
-    border: 1px solid #ececec;
-    line-height: 1.5px;
-    color: dimgrey;
-    font-size: 1rem;
-}
-
-/*HEADER*
+/*HEADER MENU*
  */
 header {
     background: dodgerblue;
-    height: 70px
+    height: 70px;
 }
 
 header * {
@@ -103,116 +92,6 @@ header ul li ul li a {
     padding: 10px;
     background: dodgerblue;
     color: maroon;
-}
-/*Slider-title*/
-.slider-title {
-    text-align: center;
-    padding: 30px 0;
-}
-
-.carousel {
-    height: 700px;
-}
-
-.carousel-inner, .carousel-item {
-    height: 700px;
-    border-radius: 4px;
-}
-
-.carousel-caption h5 {
-    font-size: 2rem;
-    font-weight: 500;
-    background-color: #000000;
-    max-width: 100%;
-    padding: 0.3em;
-    opacity: 0.5;
-}
-
-.carousel-caption hack {
-    position: absolute;
-    right: 0;
-    bottom: 0.05rem;
-    left: 0;
-    padding-top: 1.25rem;
-    padding-bottom: 0;
-    color: #fff;
-    text-align: center;
-    width: 100%;
-
-}
-
-.carousel-caption h5 a {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.carousel-caption h5 a:hover {
-    text-decoration: underline;
-}
-
-/*Main
-*/
-.main-content h2 {
-    margin: 30px 0;
-}
-
-.main-content .post {
-    margin-bottom: 30px;
-}
-
-.main-content .post_text {
-    background: white;
-    padding: 8px;
-    border-radius: 3px;
-}
-
-.main-content .post_text h3 {
-    margin: 14px 0;
-}
-
-.main-content .post_text h3 a:hover {
-    text-decoration: underline;
-    color: rgba(41, 17, 17, 1);
-}
-
-.main-content .post_text i {
-    margin: 0 14px 14px 0;
-}
-
-/*Sidebar*/
-.search {
-    margin-top: 98px;
-}
-
-.sidebar .section {
-    background: white;
-    padding: 20px;
-    border-radius: 3px;
-    margin-bottom: 30px;
-}
-
-.sidebar .topics ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    border-top: 1px solid #e0e0e0;
-}
-
-.sidebar .topics ul li a {
-    display: block;
-    padding: 15px 0 15px 0;
-    border-bottom: 1px solid #e0e0e0;
-    transition: all 0.3s;
-    text-decoration: none;
-    font-weight: 500;
-    color: #5c5b5b;
-    font-size: 1.2em;
-}
-
-.sidebar .topics ul li a:hover {
-    padding-left: 10px;
-    transition: all 0.3s;
 }
 /*FOOTER*/
 .footer {
@@ -355,8 +234,62 @@ header ul li ul li a {
 /*
 FORMS
 */
-form div.error p {
+.form div.error p {
     color: red;
     font-style: italic;
     font-size: 0.8rem;
+}
+/*SIDEBAR*/
+.sidebar {
+    margin: 1rem 0;
+    background: dodgerblue;
+    min-height: 600px;
+}
+.sidebar ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    color: #ffffff;
+}
+.sidebar ul a{
+    padding: 18px;
+    color: white;
+    display: block;
+    border-bottom: 1px solid #ffffff;
+}
+.sidebar ul a:hover {
+    padding-left: 10px;
+    transition: all 0.3s;
+    color: #d3d3d3;
+    text-decoration: none;
+}
+.posts {
+    height: 100%;
+    padding: 40px 100px 100px;
+    overflow-y:scroll;
+}
+.posts h2 {
+    text-align: center;
+    margin: 1rem 0;
+}
+.posts .title-table div {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #d3d3d3;
+    font-weight: 700 ;
+}
+
+.posts .post div {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #d3d3d3;
+}
+.posts .post .red a{
+    color:#006669;
+}
+.posts .post .del a{
+    color: red;
+}
+.posts .post .id {
+    color:#006669;
 }

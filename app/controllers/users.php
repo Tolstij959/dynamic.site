@@ -10,7 +10,7 @@ function userAuth($value)
     $_SESSION ['admin'] = $value['admin'];
 
     if ($_SESSION ['admin']) {
-        header('location: '.BASE_URL.'admin/admin.php');
+        header('location: '.BASE_URL.'admin/posts/index.php');
     } else {
         header('location: '.BASE_URL);
     }
