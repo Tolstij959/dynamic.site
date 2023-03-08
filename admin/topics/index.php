@@ -1,7 +1,6 @@
 <?php
 
 session_start();
-include "../../path.php";
 ?>
 <!doctype html>
 <html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
@@ -31,23 +30,16 @@ include("../../app/include/header-admin.php"); ?>
 
 <div class="container">
     <div class="row">
-        <div class="sidebar col-3">
-            <ul>
-                <a href="">Записи</a>
-            </ul>
-            <ul>
-                <a href="">Пользователи</a>
-            </ul>
-            <ul>
-                <a href="">Категории</a>
-            </ul>
-        </div>
+        <?php
+        include("../../app/include/sidebar-admin.php"); ?>
 
         <div class="posts col-9">
             <div class="button row">
-                <a href="create.php" class="col-2 btn btn-success">Создать категорию</a>
+                <a href="<?php
+                echo BASE_URL."admin/topics/create.php"; ?>" class="col-2 btn btn-success">Создать</a>
                 <span class="col-1"></span>
-                <a href="index.php" class="col-3 btn btn-warning">Управлять категориями</a>
+                <a href="<?php
+                echo BASE_URL."admin/topics/index.php"; ?>" class="col-3 btn btn-warning">Редактировать</a>
             </div>
             <div class="row title-table">
                 <h2>Управление категориями</h2>

@@ -30,62 +30,53 @@ include "../../app/controllers/users.php";
 include("../../app/include/header-admin.php"); ?>
 
 <div class="container">
-    <div class="row">
-        <div class="sidebar col-3">
-            <ul>
-                <a href="">Записи</a>
-            </ul>
-            <ul>
-                <a href="">Пользователи</a>
-            </ul>
-            <ul>
-                <a href="">Категории</a>
-            </ul>
+    <?php
+    include("../../app/include/sidebar-admin.php"); ?>
+    <div class="posts col-9">
+        <div class="button row">
+            <a href="<?php
+            echo BASE_URL."admin/users/create.php"; ?>" class="col-2 btn btn-success">Создать</a>
+            <span class="col-1"></span>
+            <a href="<?php
+            echo BASE_URL."admin/users/index.php"; ?>" class="col-3 btn btn-warning">Редактировать</a>
         </div>
-
-        <div class="posts col-9">
-            <div class="button row">
-                <a href="create.php" class="col-2 btn btn-success">Создать</a>
-                <span class="col-1"></span>
-                <a href="index.php" class="col-3 btn btn-warning">Управление</a>
-            </div>
-            <div class="row title-table">
-                <h2>Создать пользователя</h2>
-            </div>
-            <div class="row add-post">
-                <form action="create.php" method="post">
-                    <div class="col">
-                        <label for="formGroupExampleInput" class="form-label">Ваш логин</label>
-                        <input name="login" value="<?= $login ?>" type="text" class="form-control"
-                               id="formGroupExampleInput"
-                               placeholder="Введите ваш логин">
-                    </div>
-                    <div class="col">
-                        <label for="exampleInputEmail1" class="form-label">Адрес электронной почты</label>
-                        <input name="email" value="<?= $email ?>" type="email" class="form-control"
-                               id="exampleInputEmail1"
-                               placeholder="Введите ваш емейл">
-                        <!--                   aria-describedby="emailHelp" -->
-                    </div>
-                    <div class="col">
-                        <label for="exampleInputPassword1" class="form-label">Пароль</label>
-                        <input type="password" name="pass-first" class="form-control" id="exampleInputPassword1">
-                    </div>
-                    <div class="col">
-                        <label for="exampleInputPassword2" class="form-label">Введите пароль еще раз</label>
-                        <input type="password" name="pass-second" class="form-control" id="exampleInputPassword2">
-                    </div>
-                    <select class="form-select" aria-label="Пример выбора по умолчанию">
-                        <option selected>user</option>
-                        <option value="1">admin</option>
-                    </select>
-                    <div class="col">
-                        <button class="btn btn-primary" type="submit">Создать</button>
-                    </div>
-                </form>
-            </div>
+        <div class="row title-table">
+            <h2>Создать пользователя</h2>
+        </div>
+        <div class="row add-post">
+            <form action="create.php" method="post">
+                <div class="col">
+                    <label for="formGroupExampleInput" class="form-label">Ваш логин</label>
+                    <input name="login" value="<?= $login ?>" type="text" class="form-control"
+                           id="formGroupExampleInput"
+                           placeholder="Введите ваш логин">
+                </div>
+                <div class="col">
+                    <label for="exampleInputEmail1" class="form-label">Адрес электронной почты</label>
+                    <input name="email" value="<?= $email ?>" type="email" class="form-control"
+                           id="exampleInputEmail1"
+                           placeholder="Введите ваш емейл">
+                    <!--                   aria-describedby="emailHelp" -->
+                </div>
+                <div class="col">
+                    <label for="exampleInputPassword1" class="form-label">Пароль</label>
+                    <input type="password" name="pass-first" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="col">
+                    <label for="exampleInputPassword2" class="form-label">Введите пароль еще раз</label>
+                    <input type="password" name="pass-second" class="form-control" id="exampleInputPassword2">
+                </div>
+                <select class="form-select" aria-label="Пример выбора по умолчанию">
+                    <option selected>user</option>
+                    <option value="1">admin</option>
+                </select>
+                <div class="col">
+                    <button class="btn btn-primary" type="submit">Создать</button>
+                </div>
+            </form>
         </div>
     </div>
+</div>
 </div>
 <!--    footer    -->
 <?php

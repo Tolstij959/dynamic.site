@@ -1,7 +1,6 @@
 <?php
 
 session_start();
-include "../../path.php";
 ?>
 <!doctype html>
 <html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
@@ -30,45 +29,36 @@ include "../../path.php";
 include("../../app/include/header-admin.php"); ?>
 
 <div class="container">
-    <div class="row">
-        <div class="sidebar col-3">
-            <ul>
-                <a href="">Записи</a>
-            </ul>
-            <ul>
-                <a href="">Пользователи</a>
-            </ul>
-            <ul>
-                <a href="">Категории</a>
-            </ul>
+    <?php
+    include("../../app/include/sidebar-admin.php"); ?>
+    <div class="posts col-9">
+        <div class="button row">
+            <a href="<?php
+            echo BASE_URL."admin/topics/create.php"; ?>" class="col-2 btn btn-success">Создать</a>
+            <span class="col-1"></span>
+            <a href="<?php
+            echo BASE_URL."admin/topics/index.php"; ?>" class="col-3 btn btn-warning">Редактировать</a>
         </div>
-
-        <div class="posts col-9">
-            <div class="button row">
-                <a href="create.php" class="col-2 btn btn-success">Создать категорию</a>
-                <span class="col-1"></span>
-                <a href="index.php" class="col-3 btn btn-warning">Управлять категориями</a>
-            </div>
-            <div class="row title-table">
-                <h2>Создать категорию</h2>
-            </div>
-            <div class="row add-post">
-                <form action="create.php" method="post">
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Название категории"
-                               aria-label="Название категории">
-                    </div>
-                    <div class="col">
-                        <label for="content" class="form-label">Описание категории</label>
-                        <textarea class="form-control" id="content" rows="6"></textarea>
-                    </div>
-                    <div class="col">
-                        <button class="btn btn-primary" type="submit">Создать категорию</button>
-                    </div>
-                </form>
-            </div>
+        <div class="row title-table">
+            <h2>Создать категорию</h2>
+        </div>
+        <div class="row add-post">
+            <form action="create.php" method="post">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Название категории"
+                           aria-label="Название категории">
+                </div>
+                <div class="col">
+                    <label for="content" class="form-label">Описание категории</label>
+                    <textarea class="form-control" id="content" rows="6"></textarea>
+                </div>
+                <div class="col">
+                    <button class="btn btn-primary" type="submit">Создать категорию</button>
+                </div>
+            </form>
         </div>
     </div>
+</div>
 </div>
 <!--    footer    -->
 <?php
