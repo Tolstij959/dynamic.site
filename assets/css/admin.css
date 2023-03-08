@@ -270,7 +270,7 @@ FORMS
 }
 .posts h2 {
     text-align: center;
-    margin: 1rem 0;
+    margin: 2rem 0 0 0.5rem;
 }
 .posts .title-table div {
     padding: 15px;
@@ -293,3 +293,6 @@ FORMS
 .posts .post .id {
     color:#006669;
 }
+/*.add-post form div{*/
+/*    margin: 2rem 0;*/
+/*}*/
