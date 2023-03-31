@@ -1,6 +1,7 @@
 <?php
 
-session_start();
+include "../../path.php";
+include SITE_ROOT."/app/controllers/topics.php";
 ?>
 <!doctype html>
 <html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
@@ -33,6 +34,7 @@ include("../../app/include/header-admin.php"); ?>
         <?php
         include("../../app/include/sidebar-admin.php"); ?>
 
+
         <div class="posts col-9">
             <div class="button row">
                 <a href="<?php
@@ -42,24 +44,23 @@ include("../../app/include/header-admin.php"); ?>
                 echo BASE_URL."admin/topics/index.php"; ?>" class="col-3 btn btn-warning">Редактировать</a>
             </div>
             <div class="row title-table">
+
                 <h2>Управление категориями</h2>
                 <div class="col-1">ID</div>
                 <div class="col-5">Название</div>
                 <div class="col-4">Управление</div>
 
             </div>
-            <div class="row post">
-                <div class="id col-1">1</div>
-                <div class="title col-5">Путешествие</div>
-                <div class="red col-2"><a href="">edit</a></div>
-                <div class="del col-2"><a href="">delete</a></div>
-            </div>
-            <div class="row post">
-                <div class="id col-1">1</div>
-                <div class="title col-5">Программирование</div>
-                <div class="red col-2"><a href="">edit</a></div>
-                <div class="del col-2"><a href="">delete</a></div>
-            </div>
+            <?php
+            foreach ($topics as $key => $topic) :?>
+                <div class="row post">
+                    <div class="id col-1"><?= $key + 1; ?></div>
+                    <div class="title col-5"><?= $topic ['name']; ?></div>
+                    <div class="red col-2"><a href="edit.php?id=<?= $topic ['id']; ?>">edit</a></div>
+                    <div class="del col-2"><a href="edit.php?del_id=<?= $topic ['id']; ?>">delete</a></div>
+                </div>
+            <?php
+            endforeach; ?>
         </div>
     </div>
 </div>

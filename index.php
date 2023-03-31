@@ -1,7 +1,7 @@
 <?php
 
-include 'path.php';
-include 'app/database/db.php';
+include "path.php";
+include SITE_ROOT."/app/controllers/topics.php";
 ?>
 <!doctype html>
 <html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
@@ -181,12 +181,11 @@ include("app/include/header.php"); ?>
             <div class="section topics">
                 <h3>Категории</h3>
                 <ul>
-                    <li><a href="#">Окружение</a></li>
-                    <li><a href="#">Люди</a></li>
-                    <li><a href="#">Моменты</a></li>
-                    <li><a href="#">Биография</a></li>
-                    <li><a href="#">Вдохновляющее</a></li>
-                    <li><a href="#">Животные</a></li>
+                    <?php
+                    foreach ($topics as $key => $topic) : ?>
+                        <li><a href="#"><?= $topic ['name']; ?></a></li>
+                    <?php
+                    endforeach; ?>
                 </ul>
             </div>
 

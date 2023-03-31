@@ -8,6 +8,7 @@ function tt($value)
     echo '<pre>';
     print_r($value);
     echo '</pre>';
+    exit();
 }
 
 //Проверка выполнения запроса к БД
@@ -132,7 +133,7 @@ function update($table, $id, $params)
 function delete($table, $id)
 {
     global $pdo;
-    $sql   = "DELETE FROM  $table  WHERE id= $id";
+    $sql   = "DELETE FROM  $table  WHERE id=".$id;
     $query = $pdo->prepare($sql);
     $query->execute();
     dbCheckError($query);

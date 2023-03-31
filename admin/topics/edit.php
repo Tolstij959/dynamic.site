@@ -41,13 +41,14 @@ include("../../app/include/header-admin.php"); ?>
             echo BASE_URL."admin/topics/index.php"; ?>" class="col-3 btn btn-warning">Редактировать</a>
         </div>
         <div class="row title-table">
-            <h2>Создать категорию</h2>
+            <h2>Обновление категории</h2>
         </div>
         <div class="row add-post">
             <div class="mb-12 col-12 col-md-12 error">
                 <p><?= $errMsg ?></p>
             </div>
-            <form action="create.php" method="post">
+            <form action="edit.php" method="post">
+                <input name="id" value="<?= $id; ?>" type="hidden">
                 <div class="col">
                     <input name="name" value="<?= $name; ?>" type="text" class="form-control"
                            placeholder="Название категории"
@@ -59,7 +60,7 @@ include("../../app/include/header-admin.php"); ?>
                               rows="6"><?= $description ?></textarea>
                 </div>
                 <div class="col">
-                    <button name="topic-create" class="btn btn-primary" type="submit">Создать категорию</button>
+                    <button name="topic-edit" class="btn btn-primary" type="submit">Обновить категорию</button>
                 </div>
             </form>
         </div>
